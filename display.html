@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Display</title>
+</head>
+<body>
+  <div className="App">
+    <h2>Timer</h2>
+    <h3>Time Remaining: {timeRemaining}</h3>
+    <input
+      type="number"
+      value={min}
+      onChange={handleMinChange}
+      ref={minInputRef}
+      disabled={isTimerRunning}
+      min="0"
+      max="59"
+    />
+    <input
+      type="number"
+      value={sec}
+      onChange={handleSecChange}
+      ref={secInputRef}
+      disabled={isTimerRunning}
+      min="0"
+      max="59"
+    />
+    <input
+      type="button"
+      value="Start"
+      onClick={startTimer}
+      disabled={isTimerRunning || (!min && !sec)}
+    />
+    <input
+      type="button"
+      value="Stop"
+      onClick={stopTimer}
+      disabled={!isTimerRunning}
+    />
+    <input type="button" value="Reset" onClick={endTimer} />
+  </div>
+</body>
+</html>
