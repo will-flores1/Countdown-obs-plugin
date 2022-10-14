@@ -50,7 +50,13 @@ const main = () => {
 		reset.disabled = false;
 		minutesDisplay = parseInt(value);
 		message[0] = parseInt(value);
+		if (value === "") {
+			minutesDisplay = 0;
+			message[0] = 0;
+			minutes.value = 0;
+		}
 		channel.postMessage(message);
+		validateTimer();
 		formatTimer();
 	});
 
@@ -60,7 +66,13 @@ const main = () => {
 		reset.disabled = false;
 		secondsDisplay = parseInt(value);
 		message[1] = parseInt(value);
+		if (value === "") {
+			secondsDisplay = 0;
+			message[1] = 0;
+			seconds.value = 0;
+		}
 		channel.postMessage(message);
+		validateTimer();
 		formatTimer();
 	});
 
@@ -70,6 +82,17 @@ const main = () => {
 	// endregion
 
 	// region Methods
+	function validateTimer() {
+		console.log(minutes.value, seconds.value);
+		if (parseInt(minutes.value) === 0 && parseInt(seconds.value) === 0) {
+			isTimerRunning = false;
+			minutes.disabled = false;
+			seconds.disabled = false;
+			start.disabled = true;
+			stop.disabled = true;
+		}
+	}
+
 	function formatTimer() {
 		if (secondsDisplay < 10 && minutesDisplay < 10) {
 			timer.textContent = `0${minutesDisplay}:0${secondsDisplay}`;
