@@ -1,5 +1,7 @@
 const main = () => {
 	// region Properties
+	const channel = new BroadcastChannel("obs");
+	const message = [0, 0];
 	const head = document.querySelector(".head");
 	const timer = document.querySelector(".timer");
 	const minutes = document.querySelector(".minutes");
@@ -14,26 +16,29 @@ const main = () => {
 	// endregion
 
 	// region Defaults
-	{
-		isTimerRunning = false;
-		minutes.disabled = false;
-		seconds.disabled = false;
-		start.disabled = false;
-		stop.disabled = true;
-		reset.disabled = true;
-	}
+	channel.postMessage(message);
+	isTimerRunning = false;
+	minutes.disabled = false;
+	seconds.disabled = false;
+	start.disabled = true;
+	stop.disabled = true;
+	reset.disabled = false;
 	// endregion
 
 	// region Setters
 	function setMinutes(count) {
 		minutesDisplay = count;
 		minutes.value = count;
+		message[0] = minutes.value;
+		channel.postMessage(message);
 		formatTimer();
 	}
 
 	function setSeconds(count) {
 		secondsDisplay = count;
 		seconds.value = count;
+		message[1] = seconds.value;
+		channel.postMessage(message);
 		formatTimer();
 	}
 	// regionend
@@ -41,15 +46,21 @@ const main = () => {
 	// region Event Listeners
 	minutes.addEventListener("input", (event) => {
 		const { value } = event.target;
+		start.disabled = false;
 		reset.disabled = false;
 		minutesDisplay = parseInt(value);
+		message[0] = parseInt(value);
+		channel.postMessage(message);
 		formatTimer();
 	});
 
 	seconds.addEventListener("input", (event) => {
 		const { value } = event.target;
+		start.disabled = false;
 		reset.disabled = false;
 		secondsDisplay = parseInt(value);
+		message[1] = parseInt(value);
+		channel.postMessage(message);
 		formatTimer();
 	});
 
