@@ -29,7 +29,7 @@ const main = () => {
 	function setMinutes(count) {
 		minutesDisplay = count;
 		minutes.value = count;
-		message[0] = minutes.value;
+		message[0] = parseInt(minutes.value);
 		channel.postMessage(message);
 		formatTimer();
 	}
@@ -37,7 +37,7 @@ const main = () => {
 	function setSeconds(count) {
 		secondsDisplay = count;
 		seconds.value = count;
-		message[1] = seconds.value;
+		message[1] = parseInt(seconds.value);
 		channel.postMessage(message);
 		formatTimer();
 	}
@@ -137,6 +137,7 @@ const main = () => {
 	}
 
 	function resetTimer() {
+		location.reload();
 		isTimerRunning = false;
 		minutes.disabled = false;
 		seconds.disabled = false;
@@ -148,6 +149,7 @@ const main = () => {
 	}
 
 	function endTimer() {
+		location.reload();
 		isTimerRunning = false;
 		start.disabled = true;
 		stop.disabled = true;
