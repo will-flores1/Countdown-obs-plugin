@@ -4,15 +4,17 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="controller.css" />
 		<title>Controller</title>
 	</head>
 	<body>
 		<div className="App">
 			<h2 class="head">Timer</h2>
 			<h3 class="timer">00:00</h3>
-			<input class="minutes" type="number" value="0" min="0" max="59" />
-			<input class="seconds" type="number"value="0" min="0" max="59" />
+      <label for="minutes">min</label>
+			<input name="minutes" class="minutes" type="number" value="0" min="0" max="59" />
+      <label for="seconds">sec</label>
+			<input name="seconds" class="seconds" type="number"value="0" min="0" max="59" />
 			<input class="start" type="button" value="Start" />
 			<input class="stop" type="button" value="Stop" />
 			<input class="reset" type="button" value="Reset" />
