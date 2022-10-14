@@ -140,7 +140,7 @@ const main = () => {
 		isTimerRunning = false;
 		minutes.disabled = false;
 		seconds.disabled = false;
-		start.disabled = false;
+		start.disabled = true;
 		stop.disabled = true;
 		clearInterval(interval);
 		setMinutes(0);
@@ -149,7 +149,9 @@ const main = () => {
 
 	function endTimer() {
 		isTimerRunning = false;
-		start.disabled = false;
+		start.disabled = true;
+		stop.disabled = true;
+		reset.disabled = false;
 	}
 	// endregion
 };
