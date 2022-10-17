@@ -16,7 +16,8 @@ const main = () => {
 	// endregion
 
 	// region Defaults
-	channel.postMessage(message);
+	// console.log(channel.postMessage(message));
+	// channel.postMessage(message);
 	isTimerRunning = false;
 	minutes.disabled = false;
 	seconds.disabled = false;
