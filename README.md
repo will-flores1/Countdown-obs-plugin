@@ -1,4 +1,4 @@
-# Coutndown Timer for OBS
+# Countdown Timer for OBS
 
 _Countdown timer for OBS built on HTML, CSS, and Vanilla Javascript._
 
@@ -8,7 +8,7 @@ _Countdown timer for OBS built on HTML, CSS, and Vanilla Javascript._
 
 ![Countdown Pic1](https://media.giphy.com/media/ocEGxEShdlyxiwupKm/giphy.gif)
 
-## Project purpose and goal
+## Project purpose and goals
 
 I wanted a countdown to display when a livestream starts, I found projects in the OBS community tab that were complicated when I just wanted one funtionality: a timer.
 
